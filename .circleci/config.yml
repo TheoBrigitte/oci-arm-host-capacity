@@ -14,7 +14,7 @@ jobs:
       - run: |
           docker run \
             --rm \
-            --env-file <(env|grep -E (OCI_|CACHE_|TOO_)) \
+            --env-file <(env|grep -E "(OCI_|CACHE_|TOO_)") \
             theo01/oci-arm-host-capacity:latest
 
 workflows:
