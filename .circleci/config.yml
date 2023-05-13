@@ -24,7 +24,7 @@ workflows:
       - build:
          filters:
           branches:
-            only: master
+            only: main
   run:
     triggers:
       - schedule:
@@ -32,6 +32,6 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - main
     jobs:
       - run
