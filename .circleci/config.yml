@@ -1,8 +1,8 @@
 version: 2
 jobs:
   build:
-    machine:
-      - image: ubuntu-2204:current
+    docker:
+      - image: cimg/base:edge
     steps:
       - checkout
       - setup_remote_docker
