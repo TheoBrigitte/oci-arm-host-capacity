@@ -30,7 +30,7 @@ workflows:
   run:
     triggers:
       - schedule:
-          cron: "*/5 * * * *"
+          cron: "* * * * *"
           filters:
             branches:
               only:
