@@ -25,8 +25,8 @@ workflows:
          filters:
           branches:
             only: main
-          context:
-            - docker
+         context:
+           - docker
   run:
     triggers:
       - schedule:
