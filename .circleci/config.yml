@@ -27,13 +27,13 @@ workflows:
             only: main
          context:
            - docker
-  run:
-    triggers:
-      - schedule:
-          cron: "0,20,40 * * * *"
-          filters:
-            branches:
-              only:
-                - main
-    jobs:
-      - run
+#  run:
+#    triggers:
+#      - schedule:
+#          cron: "0,20,40 * * * *"
+#          filters:
+#            branches:
+#              only:
+#                - main
+#    jobs:
+#      - run
