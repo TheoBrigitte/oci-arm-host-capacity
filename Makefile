@@ -27,7 +27,7 @@ docker-run: SHELL=/bin/bash
 docker-run:
 	@docker run \
 	    --rm \
-	    --env-file <(env|grep -E '(OCI_|TOO_) \
+	    --env-file .env \
 	    ${DOCKER_IMAGE}
 
 .PHONY: docker docker-image docker-push
