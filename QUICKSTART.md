@@ -10,7 +10,10 @@
       https://docs.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm#two
    3. Create Pre-Authenticated Requests
       https://docs.oracle.com/en-us/iaas/Content/Object/Tasks/usingpreauthenticatedrequests.htm
+   4. Open port via Ingress rule
+      Open Networking > Virtual cloud networks > Security list
 3. Create a subnet
 4. Clone github repository: https://github.com/TheoBrigitte/oci-arm-host-capacity
    1. Fill in environment variable
       ssh fingerprint: ssh-keygen -l -E md5 -f ~/.ssh/id_rsa.pub
+5. Run reservation via CircleCI
