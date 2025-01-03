@@ -92,6 +92,7 @@ if (!empty($config->availabilityDomains)) {
 foreach ($availabilityDomains as $availabilityDomainEntity) {
     $availabilityDomain = is_array($availabilityDomainEntity) ? $availabilityDomainEntity['name'] : $availabilityDomainEntity;
     try {
+        echo "Trying to create an instance in availability domain $availabilityDomain\n";
         $instanceDetails = $api->createInstance($config, $shape, getenv('OCI_SSH_PUBLIC_KEY'), $availabilityDomain);
     } catch(ApiCallException $e) {
         $message = $e->getMessage();
@@ -106,6 +107,7 @@ foreach ($availabilityDomains as $availabilityDomainEntity) {
             strpos($message, 'Out of host capacity') !== false
         ) {
             // trying next availability domain
+            echo "Out of host capacity in $availabilityDomain, waiting 16s before trying next availabilityDomain\n";
             sleep(16);
             continue;
         }
