@@ -21,11 +21,9 @@ class Telegram implements NotifierInterface
     public function notify(string $message): array
     {
         $apiKey = getenv('TELEGRAM_BOT_API_KEY');
-        $telegramUserId = getenv('TELEGRAM_USER_ID');
 
         $body = http_build_query([
             'text' => $message,
-            'chat_id' => $telegramUserId,
         ]);
 
         $curlOptions = [
@@ -44,6 +42,6 @@ class Telegram implements NotifierInterface
 
     public function isSupported(): bool
     {
-        return !empty(getenv('TELEGRAM_BOT_API_KEY')) && !empty(getenv('TELEGRAM_USER_ID'));
+        return !empty(getenv('TELEGRAM_BOT_API_KEY'));
     }
 }
