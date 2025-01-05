@@ -1,15 +1,18 @@
-# Resolving Oracle Cloud "Out of Capacity" issue and getting free VPS with 4 ARM cores / 24GB of memory
+# Oracle Cloud free VPS with 4 ARM cores / 24GB of memory
 
 <p align="center">
-  <a href="https://github.com/hitrov/oci-arm-host-capacity/actions"><img src="https://github.com/hitrov/oci-arm-host-capacity/workflows/Tests/badge.svg" alt="Test"></a>
-  <a href="https://discord.gg/fKZQQStjMN"><img src="https://img.shields.io/discord/893301913662148658?label=Discord&logo=discord&logoColor=white" alt="Discord"></a>
+  <a href="https://https://dl.circleci.com/status-badge/redirect/gh/TheoBrigitte/oci-arm-host-capacity/tree/main"><img src="https://dl.circleci.com/status-badge/img/gh/TheoBrigitte/oci-arm-host-capacity/tree/main.svg?style=svg" alt="CircleCI"></a>
 </p>
 
 Very neat and useful configuration was recently [announced](https://blogs.oracle.com/cloud-infrastructure/post/moving-to-ampere-a1-compute-instances-on-oracle-cloud-infrastructure-oci) at Oracle Cloud Infrastructure (OCI) blog as a part of Always Free tier. Unfortunately, as of July 2021, it's very complicated to launch an instance due to the "Out of Capacity" error. Here we're solving that issue as Oracle constantly adds capacity from time to time.
 
+More information about Always Free tier can be found [here](https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm).
+
 > Each tenancy gets the first 3,000 OCPU hours and 18,000 GB hours per month for free to create Ampere A1 Compute instances using the VM.Standard.A1.Flex shape (equivalent to 4 OCPUs and 24 GB of memory).
 
-This approach requires **PHP 7.4 | 8.0 | 8.1 | 8.2** and **composer** installed and will call "LaunchInstance" OCI API [endpoint](https://docs.oracle.com/en-us/iaas/api/#/en/iaas/20160918/Instance/LaunchInstance). We'll utilise the [package](https://packagist.org/packages/hitrov/oci-api-php-request-sign) which I've written (and [published](https://github.com/hitrov/oci-api-php-request-sign)) some time ago, here's the [article](https://hitrov.medium.com/creating-mini-php-sdk-to-sign-oracle-cloud-infrastructure-api-requests-d91a224c7008?sk=5b4405c1124bfeac30a370630fd94126).
+This approach requires **PHP 7.4 | 8.0 | 8.1 | 8.2** and **composer** installed and will call "LaunchInstance" OCI API [endpoint](https://docs.oracle.com/en-us/iaas/api/#/en/iaas/20160918/Instance/LaunchInstance).
+
+Original work was done by [@hitrov](https://github.com/hitrov): at [hitrov/oci-arm-host-capacity](https://github.com/hitrov/oci-arm-host-capacity) using [hitrov/oci-api-php-request-sign](https://github.com/hitrov/oci-api-php-request-sign) ([packagist](https://packagist.org/packages/hitrov/oci-api-php-request-sign)), [article](https://hitrov.medium.com/creating-mini-php-sdk-to-sign-oracle-cloud-infrastructure-api-requests-d91a224c7008?sk=5b4405c1124bfeac30a370630fd94126).
 
 If you prefer article style, here's a link to [Medium](https://hitrov.medium.com/resolving-oracle-cloud-out-of-capacity-issue-and-getting-free-vps-with-4-arm-cores-24gb-of-6ecd5ede6fcc?sk=01d761f7cd80c77e0fed773972f4d1a8)
 
@@ -65,7 +68,7 @@ Copy the contents from textarea and save it to file with a name "config". I put 
 
 Clone this repository
 ```bash
-git clone https://github.com/hitrov/oci-arm-host-capacity.git
+git clone https://github.com/TheoBrigitte/oci-arm-host-capacity.git
 ```
 run
 ```bash
@@ -259,7 +262,7 @@ In order to test the script using GitHub runners (their virtual machines) please
 6. Copy and save the URL from (5) as `OCI_PRIVATE_KEY_FILENAME` GitHub secret.
 7. Go to any other directory e.g. `cd /Users/hitrov`
 8. `git clone https://github.com/{your-username}/oci-arm-host-capacity`
-9. Adjust the file `.github/workflows/tests.yml` according to [this commit](https://github.com/hitrov/oci-arm-host-capacity/commit/67fe41ebfb9f385ae1614c97b74195ea318c8db7), just execute:
+9. Adjust the file `.github/workflows/tests.yml` according to [this commit](https://github.com/TheoBrigitte/oci-arm-host-capacity/commit/67fe41ebfb9f385ae1614c97b74195ea318c8db7), just execute:
 ```bash
 git checkout 67fe41ebfb9f385ae1614c97b74195ea318c8db7 -- .github/workflows/tests.yml
 ```
